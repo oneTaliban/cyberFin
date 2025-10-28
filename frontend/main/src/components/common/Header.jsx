@@ -4,7 +4,7 @@ import {Cpu, DollarSign, CheckSquare, BarChart3, LogOut } from 'lucide-react';
 const Header = ({ activeTab, setActiveTab}) => {
     const navItems = [
         {id: 'dashboard', label: 'Dashboard', icon: Cpu},
-        {id: 'expneses', label: 'Expenses', icon: DollarSign},
+        {id: 'expenses', label: 'Expenses', icon: DollarSign},
         {id: 'tasks', label: 'Tasks', icon: CheckSquare},
         {id: 'analytics', label: 'Analytics', icon: BarChart3},
     ];

@@ -80,7 +80,7 @@ const ExpenseForm = ({onAddExpense}) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-                <label className='block text-sm text-gray-400.mb-2.font-mono'>
+                <label className='block text-sm text-gray-400 mb-2 font-mono'>
                     Category
                 </label>
                 <select 
@@ -96,7 +96,7 @@ const ExpenseForm = ({onAddExpense}) => {
             </div>
         
             <div>
-                <label className='block text-sm text-gray-400.mb-2.font-mono'>
+                <label className='block text-sm text-gray-400 mb-2 font-mono'>
                     Type
                 </label>
                 <select 
