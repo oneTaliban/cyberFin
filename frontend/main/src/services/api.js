@@ -26,7 +26,7 @@ api.interceptors.request.use(
 
 // Response interceptor to handle token refresh
 api.interceptors.response.use(
-    (response) = response,
+    (response) => response,
     async (error) => {
         const originalRequest = error.config;
 
