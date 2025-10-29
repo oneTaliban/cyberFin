@@ -3,7 +3,7 @@
 }
 
 .terminal-content {
-    @apply font-mon text-sm leading-relaxed;
+    @apply font-mono text-sm leading-relaxed;
 }
 
 .terminal-prompt {

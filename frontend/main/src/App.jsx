@@ -11,6 +11,7 @@ import ThreeDCube from './components/common/ThreeDCube';
 import ExpenseTracker from './components/expenses/ExpenseTracker';
 import Dashboard from './components/Dashboard';
 import TaskManager from './components/tasks/TaskManager';
+import AnalyticsDashboard from './components/analytics/AnalyticsDashboard';
 
 function App() {
   const [activeTab, setActiveTab] = useState();
@@ -22,7 +23,7 @@ function App() {
       case 'tasks':
         return <TaskManager></TaskManager>;
       case 'analytics':
-        return;
+        return <AnalyticsDashboard></AnalyticsDashboard>;
       default :
       return <Dashboard></Dashboard>;
     }
@@ -47,6 +48,7 @@ function App() {
             <Route path='/' element={renderContent()}></Route>
             <Route path='/expenses' element={<ExpenseTracker></ExpenseTracker>}></Route>
             <Route path='/tasks' element={<TaskManager></TaskManager>}></Route>
+            <Route path='/analytics' element={<AnalyticsDashboard></AnalyticsDashboard>}></Route>
           </Routes>
         </main>
       </div>

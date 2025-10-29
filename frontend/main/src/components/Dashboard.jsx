@@ -1,6 +1,7 @@
 import React from 'react'
 import ExpenseTracker from './expenses/ExpenseTracker'
 import TaskManager from './tasks/TaskManager'
+import AnalyticsDashboard from './analytics/AnalyticsDashboard'
 
 
 const Dashboard = () => {
@@ -11,7 +12,7 @@ const Dashboard = () => {
         </div>
         <div className="space-y-6">
           <TaskManager></TaskManager>
-          <></>
+          <AnalyticsDashboard></AnalyticsDashboard>
         </div>
     </div>
   )
