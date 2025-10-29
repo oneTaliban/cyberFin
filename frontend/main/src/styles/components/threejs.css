@@ -1,0 +1,41 @@
+/* Three js canvas  container styles */
+.three-container {
+    @apply fixed inset-0 -z-10;
+}
+
+.three-overlay {
+    @apply absolute inset-0 pointer-events-none;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.8) 70%,
+        black 100%
+    );
+}
+
+/* 3D object interaction hints */
+.three-interactive {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.three-interactive:hover {
+    filter: drop-shadow(0 0 10px var(--color-hacker-green));
+}
+
+/* Performance optimization */
+.three-performance {
+    image-rendering: -webkit-optimizw-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Loading states for 3d content */
+.three-loading {
+    @apply flex items-center justify-center;
+    background: linear-gradient(45deg, #000, #111, #000);
+}
+
+.three-loading::after {
+    content: "LOADING CYBER SPACE...";
+    @apply text-hacker-green font-mono animate-pulse;
+}
