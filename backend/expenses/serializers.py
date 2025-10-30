@@ -7,7 +7,7 @@ class ExpenseCategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'color']
 
 class ExpenseSerializer(serializers.ModelSerializer):
-    category_name = serializers.CharField(source='category.name',read_ony=True)
+    category_name = serializers.CharField(source='category.name',read_only=True)
     category_color = serializers.CharField(source='category.color', read_only=True)
 
     class Meta:

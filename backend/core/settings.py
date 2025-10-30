@@ -48,10 +48,10 @@ INSTALLED_APPS = [
     'django_filters',
 
     #Local apps
-    'users.apps',
-    'expenses.apps',
-    'tasks.apps',
-    'analytics.apps',
+    'users.apps.UsersConfig',
+    'expenses.apps.ExpensesConfig',
+    'tasks.apps.TasksConfig',
+    'analytics.apps.AnalyticsConfig',
 ]
 
 MIDDLEWARE = [
