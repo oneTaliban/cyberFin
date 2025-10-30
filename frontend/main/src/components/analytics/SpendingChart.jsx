@@ -44,9 +44,12 @@ const SpendingChart = () => {
             <div className="mt-6">
                 <div className="text-hacker-green font-mono font-semibold mb-4">Monthly Trends</div>
                 <div className="flex items-end justify-between h-32">
-                    {[65, 75, 82, 92].map((value, index) => (
+                    {[65, 75, 82, 78, 85, 92].map((value, index) => (
                         <div key={index} className="flex flex-col items-center">
-                            <div style={{ height: `${value}%`}} className="w-4 bg-hacker-green rounded-t transition-all duration-500 hover:bg-green-400">
+                            <div 
+                                className="w-4 bg-hacker-green rounded-t transition-all duration-500 hover:bg-green-400"
+                                style={{ height: `${value / 16}rem`}} 
+                            >
                             </div>
                             <div className="text-xs text-gray-400 font-mono mt-1">
                                 {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'][index]}
