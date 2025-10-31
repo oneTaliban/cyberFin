@@ -16,7 +16,7 @@ const BudgetPlanning = () => {
                 {budgets.map((item, index) => {
                     const percentage = (item.spent / item.budget) * 100;
                     const isOverBudget = percentage > 100;
-                    const colorClass = isOverBudget ? 'hacker-red' : 'item.color';
+                    const colorClass = isOverBudget ? 'hacker-red' : item.color;
                     
                     return (
                         <div key={index} className="space-y-2">

@@ -12,6 +12,8 @@ import ExpenseTracker from './components/expenses/ExpenseTracker';
 import Dashboard from './components/Dashboard';
 import TaskManager from './components/tasks/TaskManager';
 import AnalyticsDashboard from './components/analytics/AnalyticsDashboard';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 
 function App() {
   const [activeTab, setActiveTab] = useState();
@@ -45,10 +47,13 @@ function App() {
         <Header activeTab={activeTab} setActiveTab={setActiveTab}></Header>
         <main className="container mx-auto px-4 py-4">
           <Routes>
-            <Route path='/' element={renderContent()}></Route>
+            <Route path='/dashboard' element={renderContent()}></Route>
             <Route path='/expenses' element={<ExpenseTracker></ExpenseTracker>}></Route>
             <Route path='/tasks' element={<TaskManager></TaskManager>}></Route>
             <Route path='/analytics' element={<AnalyticsDashboard></AnalyticsDashboard>}></Route>
+            <Route path='/login' element={<Login></Login>}></Route>
+            <Route path='/register' element={<Register></Register>}></Route>
+            <Route path='*' element={renderContent()}></Route>
           </Routes>
         </main>
       </div>

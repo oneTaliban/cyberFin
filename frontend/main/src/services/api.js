@@ -48,12 +48,12 @@ api.interceptors.response.use(
                 //Redirect to login
                 localStorage.removeItem('access_token');
                 localStorage.removeItem('refresh_token');
-                window.location.href = '/login';
+                // window.location.href = '/login';
                 return Promise.reject(refreshError);
             }
         }
 
-        return Promise.refresh(error);
+        return Promise.reject(error);
     }
 );
 
@@ -85,4 +85,10 @@ export const authAPI = {
     logout: () => api.post('/auth/logout/'),
 }
 
+const credentials = {
+    username: 'AdminKevo',
+    password: 'Moneey62',
+};
+
+authAPI.login(credentials);
 export default api;
