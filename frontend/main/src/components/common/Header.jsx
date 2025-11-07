@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import {Cpu, DollarSign, CheckSquare, BarChart3, LogOut } from 'lucide-react';
-
+import { logout} from '../../services/auth';
 const Header = ({ activeTab, setActiveTab}) => {
+
+    const getUser = () => { 
+        try {
+            const user = localStorage.getItem(JSON.parse(user));
+            const username = user.username;
+            return username;
+        } catch(error) {
+            console.error("Failed to load username: ", error);
+            return user;
+        }
+    };
+
+
     const navItems = [
         {id: 'dashboard', label: 'Dashboard', icon: Cpu},
         {id: 'expenses', label: 'Expenses', icon: DollarSign},
@@ -43,16 +56,19 @@ const Header = ({ activeTab, setActiveTab}) => {
 
                 <div className="flex items-center space-x-4">
                     <div className="text-sm text-gray-400 font-mono">
-                        Welcome, User
+                        Welcome, {getUser()}
                     </div>
-                    <button className='p-2 text-gray-gray-400 hover:text-hacker-green transition-colors'>
+                    <button 
+                        className='p-2 text-gray-gray-400 hover:text-hacker-green transition-colors'
+                        // onClick={logout()}    
+                    >
                         <LogOut size={18}></LogOut>
                     </button>
                 </div>
             </div>
         </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

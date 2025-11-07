@@ -6,6 +6,7 @@ import { Box, Text, OrbitControls} from '@react-three/drei';
 import { Eye, EyeOff, LogIn, Cpu, Shield, Zap } from 'lucide-react';
 import { gsap } from 'gsap';
 import Terminal from '../common/Terminal';
+import { authAPI } from '../../services/api';
 
 const FloatingCubes = () => {
     const cube1 = useRef();
@@ -98,7 +99,14 @@ const Login = () => {
         setErrors({});
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 2000))
+            // await new Promise(resolve => setTimeout(resolve, 2000))
+            const response = await authAPI.login(formData);
+            const { user, access, refresh } = response.data;
+
+            
+            localStorage.setItem('access_token', access);
+            localStorage.setItem('refresh_token', refresh);
+            localStorage.setItem('user', JSON.stringify(user));
 
             //Animations on success
             gsap.to('.login-container', {

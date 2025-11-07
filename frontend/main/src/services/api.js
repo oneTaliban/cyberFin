@@ -48,7 +48,7 @@ api.interceptors.response.use(
                 //Redirect to login
                 localStorage.removeItem('access_token');
                 localStorage.removeItem('refresh_token');
-                // window.location.href = '/login';
+                window.location.href = '/login';
                 return Promise.reject(refreshError);
             }
         }
@@ -56,6 +56,7 @@ api.interceptors.response.use(
         return Promise.reject(error);
     }
 );
+
 
 //Api endpoints 
 

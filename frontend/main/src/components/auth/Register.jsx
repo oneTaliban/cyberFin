@@ -4,8 +4,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Box, Text, OrbitControls } from '@react-three/drei'
 import { User, Mail, Lock, Cpu, Shield, Zap, Orbit, FastForward, Check } from 'lucide-react'
-import { gsap } from 'gsap/gsap-core'
+import { gsap } from 'gsap'
 import Terminal from '../common/Terminal'
+import { authAPI } from '../../services/api'
 
 const RotatingPyramids = () => {
     const pyramid1 = useRef();
@@ -142,7 +143,7 @@ const Register = () => {
 
         // Validation
         const newErrors = {};
-        if (!formData.password !== formData.confirmPassword) {
+        if (formData.password !== formData.confirmPassword) {
             newErrors.confirmPassword = 'Passwords do not match'
         }
         if (!formData.acceptTerms) {
@@ -156,8 +157,15 @@ const Register = () => {
         }
 
         try {
-            //Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            // await new Promise(resolve => setTimeout(resolve, 2000));
+            setIsLoading(true);
+            const response = await authAPI.register(formData);
+
+            const { user, refresh, access } = response.data;
+            localStorage.setItem('access_token', access);
+            localStorage.setItem('refresh_token', refresh);
+            localStorage.setItem('user', JSON.stringify(user));
+
 
             //Success animation
             gsap.to('.register-container', {
