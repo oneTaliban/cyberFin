@@ -10,7 +10,7 @@ const Header = ({ activeTab, setActiveTab}) => {
             return username;
         } catch(error) {
             console.error("Failed to load username: ", error);
-            return user;
+            return 'user';
         }
     };
 
